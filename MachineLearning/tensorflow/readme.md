@@ -2,7 +2,6 @@
 
 安装并运行第一个tnsorflow版本 hello world
 
-
 ## tensorflow的第一个helloworld
 
 新建文件:tensorflow_heloworld.py
