@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello tensorflow</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0"> </script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <script src="./script.js" defer></script>
+  </head>
+
+    <div class="settings" id="demo-content">
+
+      <div class="input-container formula">
+        <b>数据生成公式: </b>
+        <code>
+        <input id="i_a" placeholder="-0.8" value="-0.8" onchange="init()" type="number">*x<sup>3</sup> +
+        <input id="i_b" placeholder="-0.2" value="-0.2" onchange="init()" type="number">*x<sup>2</sup> +
+        <input id="i_c" placeholder="0.9" value="0.9" onchange="init()" type="number">*x +
+        <input id="i_d" placeholder="0.5" value="0.5" onchange="init()" type="number">
+        </code>
+      </div>
+      <br>
+      <div class="input-container">
+        <label for="points">默认点</label>
+        <input id="points" placeholder="100" value="100" type="number" onchange="init()">
+      </div>
+      <div class="input-container">
+        <label for="iterations">迭代</label>
+        <input id="iterations" placeholder="75" value="75" type="number">
+      </div>
+      <button onclick="doALearning()">训练吧</button>
+    </div>
+
+    <div id="graph"></div>
+
+
+  </body>
+</html>
