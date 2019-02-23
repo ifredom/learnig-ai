@@ -10,14 +10,10 @@ with open('testdata1.txt', 'w') as f:
     f.write('Hello, world!')
     f.close()
 
-
-
 with codecs.open('testdata.txt', 'r', 'gbk') as f:
     r = f.read()
     print(r)
     f.close()
-
-
 
 # 注意事项
 # pickle.dump  读写文件类型时，默认使用t（文本），其他数据类型，比如这里data字典会报错

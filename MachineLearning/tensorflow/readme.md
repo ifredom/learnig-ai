@@ -1,6 +1,7 @@
 # tensorflow
 
-安装并运行第一个tnsorflow版本 hello world
+> 安装并运行第一个tnsorflow版本 hello world
+> 源代码以及详细的解释都在source文件夹内
 
 ## tensorflow的第一个helloworld
 
