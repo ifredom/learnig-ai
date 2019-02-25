@@ -10,4 +10,4 @@ A Graph包含一组 tf.Operation对象，表示计算单位; 和 tf.Tensor对象
 
 2. 如果打算运行自己创建的graph，一定要把它传递给tf.Session的graph参数.参见（`self_graph.py`）
 
-3. 在实际工作中，我们需要创建包含成百上千个节点的graph。如何有效的组织和查看graph就显得尤为重要。参见（`name_scope_graph.py`）,才考资料[graph讲解](https://www.jianshu.com/p/a5d725e90565)
+3. 在实际工作中，我们需要创建包含成百上千个节点的graph。如何有效的组织和查看graph就显得尤为重要。参见（`name_scope_graph.py`）,参考资料[graph讲解](https://www.jianshu.com/p/a5d725e90565)
