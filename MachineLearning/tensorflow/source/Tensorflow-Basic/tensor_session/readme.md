@@ -24,8 +24,6 @@
 
 ### 参考资料
 
-
 张量解释： https://www.zhihu.com/question/20695804
 
 张量引申理解 ： universal property（万有性质）
-
