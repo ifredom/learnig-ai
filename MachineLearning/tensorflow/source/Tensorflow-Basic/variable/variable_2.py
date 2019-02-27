@@ -1,6 +1,5 @@
 import tensorflow as tf
 
-
 # 进入一个交互式 TensorFlow 会话.
 # sess = tf.InteractiveSession()
 
@@ -23,7 +22,3 @@ with tf.Session()as sess:
   for _ in range(3):
     sess.run(update)
     print(sess.run(state))
-
-# 参考资料 
-# https://morvanzhou.github.io/tutorials/machine-learning/tensorflow/2-4-variable/
-# 其中初始化不一样

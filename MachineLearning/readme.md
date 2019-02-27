@@ -18,10 +18,8 @@
 
 > 根据 TensorFlow-Course 教程[](https://github.com/machinelearningmindset/TensorFlow-Course)开始学习
 
-1. 根据 TensorFlow-Course 教程学习了 `TensorFlow-Course\part1` 和 `TensorFlow-Course\part2`. 学习过程中，发现对pthon基础操作了解的不够
+1. 2019-02-23 学习了 `TensorFlow-Course\part1` 和 `TensorFlow-Course\part2`. 学习过程中，发现对pthon基础操作了解的不够。然后在[廖雪峰大佬的python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)这里，巩固了`python基础` 和`高级特性`，代码练习写在`pthon/basic` ，
 
-2. 然后在[廖雪峰大佬的python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000)这里，巩固了`python基础` 和`高级特性`，代码写在`pthon/basic` ，
+2. 2019-02-25 接下来发现要学习 TensorFlow-Course 教程的part3部分，需要对tensorflow的基础 Tensor(张量) Variable(变量)  Session(会话) Graph(图表) 这些基础知识有更深入的了解，所以先去巩固这个基础。其中，谷歌搜索`如何学习tensor`和`如何学习graph`，伴随查看[tensorflowAPI](https://www.tensorflow.org/guide/tensors?hl=zh-cn)这里,将这几个低阶API基础都完整理解一遍。
 
-3. 接下来发现要学习 TensorFlow-Course 教程的part3部分，需要对tensorflow的基础 Tensor(张量) Variable(变量)  Session(会话) Graph(图表) 这些基础知识有更深入的了解，所以先去巩固这个基础。其中，谷歌搜索`如何学习tensor`和`如何学习graph`，伴随查看[tensorflowAPI](https://www.tensorflow.org/guide/tensors?hl=zh-cn)这里,将这几个低阶API基础都完整理解一遍。
-
-4. 
+3. 2019-02-27 接下来发现要学习 TensorFlow-Course 教程的part4部分,总算要开始运行第一个模型：线性回归。发现需要补充数学知识。google搜索内容，学习过程为：什么是线性回归？--> 什么是简单回归?-->什么是最小二乘法-->什么是正态分布？-->什么是标准正态分布？-->什么是标准差/中位数/众数/概率密度函数 --> 线性回归 -->多项式回归。代码写在 `TensorFlow-Course\part3-lineModel`
