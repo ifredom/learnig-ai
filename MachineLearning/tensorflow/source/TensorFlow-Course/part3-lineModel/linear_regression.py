@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import xlrd
 import os
+import random
 from sklearn.utils import check_random_state
 
 # NumPy(Numerical Python) 是 Python 语言的一个扩展程序库，
@@ -21,10 +22,12 @@ XX = np.arange(n)  # 创建一个数组，并赋值 从0到49
 print(XX)
 rs = check_random_state(0)  # 设置随机种子
 
-print(rs)
-#  生成一个随机数，加上一维数组的一维矩阵
+# randint(a, b) 用来生成[a, b]之间的随意整数，包括两个边界值。
+#  生成一个随机数，  在这里： y = a + bx
 YY = rs.randint(-10, 10, size=(n,)) + 2.0 * XX  
 
+# stack()堆叠数组
+# 参考资料：https://blog.csdn.net/csdn15698845876/article/details/73380803
 data = np.stack([XX, YY], axis=1)
 
 num_epochs = 50
@@ -103,6 +106,22 @@ with tf.Session() as sess:
 
         # save the values of weight and bias
         wcoeff, bias = sess.run([W, b])
+
+###############################
+#### Evaluate and plot ########
+###############################
+Input_values = data[:,0]
+Labels = data[:,1]
+Prediction_values = data[:,0] * wcoeff + bias
+
+# uncomment if plotting is desired!
+plt.plot(Input_values, Labels, 'ro', label='main')
+plt.plot(Input_values, Prediction_values, label='Predicted')
+
+# Saving the result.
+plt.legend()
+plt.show()
+plt.close()
 
 # 参考文档
 # 源代码位置 https://github.com/machinelearningmindset/TensorFlow-Course/blob/master/codes/ipython/2-basics_in_machine_learning/linear_regression/code/linear_regression.ipynb
