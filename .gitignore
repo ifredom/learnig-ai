@@ -2,4 +2,5 @@
 .DS_Store
 
 # Windows
-MachineLearning/tensorflow/part1/data_MNIST
+MachineLearning/tensorflow_python/part1/data_MNIST
+MachineLearning/tensorflow_python/TensorFlow-Course/part4-logistic/MNIST_data
