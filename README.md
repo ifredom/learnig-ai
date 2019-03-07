@@ -2,7 +2,7 @@
 
 * 学习AI，并记录过程。
 
-* 目前学习MachineLeaning中,并记录在对应文件夹内。
+* 目前正在学习`MachineLeaning`,并记录在对应文件夹`MachineLeaning`内,打开即可见。
 
 * 欢迎联系我一起学习：1950735817
 

@@ -24,61 +24,54 @@ rs = check_random_state(0)  # 设置随机种子
 
 # randint(a, b) 用来生成[a, b]之间的随意整数，包括两个边界值。
 #  生成一个随机数，  在这里： y = a + bx
-YY = rs.randint(-10, 10, size=(n,)) + 2.0 * XX  
+YY = rs.randint(-10, 10, size=(n,)) + 2.0 * XX
 
 # stack()堆叠数组
 # 参考资料：https://blog.csdn.net/csdn15698845876/article/details/73380803
 data = np.stack([XX, YY], axis=1)
 
-num_epochs = 50
+# 模型训练次数，默认值：50
+num_epochs = 60
 
-# creating the weight and bias.
-# The defined variables will be initialized to zero.
+# 创建两个变量，权重和偏差，初始值设置为0
 W = tf.Variable(0.0, name="weights")
 b = tf.Variable(0.0, name="bias")
 
 
-###############################
-##### Necessary functions #####
-###############################
+####################
+##### 必要功能 #####
+###################
 
-#  Creating placeholders for input X and label Y.
+#  创建占位符 X 和 Y
 def inputs():
     """
-    Defining the place_holders.
-    :return:
-            Returning the data and label place holders.
+    定义place_holders。
+        返回:
+        返回数据和标签位置保持器。
     """
     X = tf.placeholder(tf.float32, name="X")
     Y = tf.placeholder(tf.float32, name="Y")
     return X, Y
 
-# Create the prediction.
+# 创建预测
+# 输入X,返回 X*W + b
 
 
 def inference(X):
-    """
-    Forward passing the X.
-    :param X: Input.
-    :return: X*W + b.
-    """
     return X * W + b
+
+# 损失函数
+# 通过将预测值与实际值进行比较来计算损失。X输入值，Y实际值，返回损失值。
 
 
 def loss(X, Y):
-    '''
-    compute the loss by comparing the predicted value to the actual label.
-    :param X: The input.
-    :param Y: The label.
-    :return: The loss over the samples.
-    '''
-
-    # Making the prediction.
+    # 开始预测
     Y_predicted = inference(X)
     return tf.reduce_sum(tf.squared_difference(Y, Y_predicted))/(2*data.shape[0])
 
+# 训练方法
 
-# The training function.
+
 def train(loss):
     learning_rate = 0.0001
     return tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
@@ -86,39 +79,39 @@ def train(loss):
 
 with tf.Session() as sess:
 
-    # Initialize the variables[w and b].
+    # 初始化变量[w 和 b].
     sess.run(tf.global_variables_initializer())
 
-    # Get the input tensors
+    # 获取输入张量
     X, Y = inputs()
 
-    # Return the train loss and create the train_op.
+    # 返回损失值，以及创建训练operator.
     train_loss = loss(X, Y)
     train_op = train(train_loss)
 
-    # Step 8: train the model
+    # Step 8: 训练模型
     for epoch_num in range(num_epochs):
-        loss_value, _ = sess.run([train_loss, train_op],
-                                 feed_dict={X: data[:, 0], Y: data[:, 1]})
+        loss_value, _ = sess.run([train_loss, train_op],  feed_dict={X: data[:, 0], Y: data[:, 1]})
 
-        # Displaying the loss per epoch.
+        # 打印每一个时间点的损失值
         print('epoch %d, loss=%f' % (epoch_num+1, loss_value))
 
-        # save the values of weight and bias
+        # 保存权重和偏差
         wcoeff, bias = sess.run([W, b])
 
 ###############################
-#### Evaluate and plot ########
+#### 评估和绘图. ########
+#### matplotlib这个库，将他作为一个专门用来绘制图形的库来看待 ########
 ###############################
-Input_values = data[:,0]
-Labels = data[:,1]
-Prediction_values = data[:,0] * wcoeff + bias
+Input_values = data[:, 0]
+Labels = data[:, 1]
+Prediction_values = data[:, 0] * wcoeff + bias
 
-# uncomment if plotting is desired!
+# 绘图方法
 plt.plot(Input_values, Labels, 'ro', label='main')
 plt.plot(Input_values, Prediction_values, label='Predicted')
 
-# Saving the result.
+# 保存结果
 plt.legend()
 plt.show()
 plt.close()
