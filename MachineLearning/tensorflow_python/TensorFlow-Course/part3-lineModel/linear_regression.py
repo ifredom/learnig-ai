@@ -22,11 +22,11 @@ XX = np.arange(n)  # 创建一个数组，并赋值 从0到49
 print(XX)
 rs = check_random_state(0)  # 设置随机种子
 
-# randint(a, b) 用来生成[a, b]之间的随意整数，包括两个边界值。
-#  生成一个随机数，  在这里： y = a + bx
+# randint(a, b,size) 用来生成[a, b]之间的随意整数，包括两个边界值。size 个数不指定，默认为一个
+#  生成一个随机数，并给每一个值加上2.0 * XX  在这里： y = a + bx
 YY = rs.randint(-10, 10, size=(n,)) + 2.0 * XX
 
-# stack()堆叠数组
+# stack()堆叠数组.
 # 参考资料：https://blog.csdn.net/csdn15698845876/article/details/73380803
 data = np.stack([XX, YY], axis=1)
 
@@ -99,10 +99,10 @@ with tf.Session() as sess:
         # 保存权重和偏差
         wcoeff, bias = sess.run([W, b])
 
-###############################
+########################
 #### 评估和绘图. ########
-#### matplotlib这个库，将他作为一个专门用来绘制图形的库来看待 ########
-###############################
+#### matplotlib 这个库，将他作为一个专门用来绘制图形的库来看待 ########
+########################
 Input_values = data[:, 0]
 Labels = data[:, 1]
 Prediction_values = data[:, 0] * wcoeff + bias
